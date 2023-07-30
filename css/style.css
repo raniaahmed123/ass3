@@ -1,0 +1,64 @@
+body{
+    background-color: #F7ECDE;
+}
+
+i{
+    width:20px ;
+    height: 20px;
+}
+
+
+.pageTitle {
+    width: fit-content;
+    font-family: "Righteous", cursive;
+    font-size: 25px;
+    background: linear-gradient(to right,#3FA55B , #B2AC49); 
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+hr{
+    border-top: 3px dotted rgb(0, 0, 0);
+    height: 3px;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+   }
+.bgDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.bgDiv1{
+    background-color: #FEC260;
+    width: 270px;
+    height: 20px;
+    position: absolute;
+    bottom: 10px;
+    z-index: -1;
+    transition: .5s all;
+
+}
+.bgDiv:hover .bgDiv1 {
+
+    height: 40px;
+}
+.bgDiv h1{
+    font-size: 50px;
+    font-family: "Pacifico", cursive;
+}
+label{
+    font-weight: bold;
+}
+.btn{
+    text-align: center;
+}
+.btn-visit{
+    color: white;
+    background-color: #B2AC49;
+    --bs-btn-hover-border-color: #B2AC49;
+    --bs-btn-bg: #B2AC49;
+
+}
