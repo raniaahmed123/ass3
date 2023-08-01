@@ -7,25 +7,30 @@ if(localStorage.getItem("allSites") != null)
 {
 
     sitesContainer = JSON.parse(localStorage.getItem("allSites"))
-    displaySites()
+     displaySites()
 }
 
 function addSite(){
  
-   var site = {
-    name : siteNameInput.value ,
-    url : siteUrlInput.value,
-    }
-    // console.log(site)
-    // document.getElementById("data").innerHTML =  site.name + site.url
-
-
-
-sitesContainer.push(site)
+  if(isSiteNameValid() && isSiteUrlValid() == true)
+  {
+    var site = {
+        name : siteNameInput.value ,
+        url : siteUrlInput.value,
+        }
+        sitesContainer.push(site)
 localStorage.setItem("allSites", JSON.stringify(sitesContainer) )
 
 displaySites();
 clearForm();
+  }
+
+else{
+    alert(` Site Name or Url is not valid, Please follow the rules below :
+
+    Site name must contain at least 3 characters
+    Site URL must be a valid one`)
+}
 
 }
 
@@ -50,43 +55,33 @@ document.getElementById("tableData").innerHTML=siteBox
 }
 var siteNameRegex = /[A-za-z0-9_\.]{3,}$/i
 function isSiteNameValid(){
-    if(siteNameRegex.test(siteNameInput.value))
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
+    return siteNameRegex.test(siteNameInput.value)
+   
 }
 
 var siteUrlRegex = /^(https:\/\/)?(www\.)?[A-za-z0-9_\.]{3,}\.[a-z]{3}$/i
 
 function isSiteUrlValid(){
-    if(siteUrlRegex.test(siteUrlInput.value))
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
+     return siteUrlRegex.test(siteUrlInput.value)
+    
 }
 
-siteUrlInput.onkeyup = function(){
-    if(isSiteUrlValid() && isSiteNameValid() == true)
-    {
-        document.getElementById("submitbtn").removeAttribute('disabled')
+// siteUrlInput.onkeyup = function(){
+//     if(isSiteUrlValid() && isSiteNameValid() == true)
+//     {
+//         document.getElementById("submitbtn").removeAttribute('disabled')
      
-        }
+//         }
 
-        else{
-            document.getElementById("submitbtn").disabled = "true"
-            // window.alert(`Site Name or Url is not valid, Please follow the rules below :
+//         else{
+//             document.getElementById("submitbtn").disabled = "true"
+//             // window.alert(`Site Name or Url is not valid, Please follow the rules below :
 
-            // Site name must contain at least 3 characters
-            // Site URL must be a valid one` )
+//             // Site name must contain at least 3 characters
+//             // Site URL must be a valid one` )
 
-        }
-}
+//         }
+// }
 
 
 function deleteSite(siteNumber){
