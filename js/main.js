@@ -48,7 +48,7 @@ for(var i=0 ;i< sitesContainer.length ; i++)
 document.getElementById("tableData").innerHTML=siteBox
 
 }
-var siteNameRegex = /[A-za-z0-9_\.]{3,}$/
+var siteNameRegex = /[A-za-z0-9_\.]{3,}$/i
 function isSiteNameValid(){
     if(siteNameRegex.test(siteNameInput.value))
     {
@@ -59,7 +59,7 @@ function isSiteNameValid(){
     }
 }
 
-var siteUrlRegex = /^(https:\/\/)?(www\.)?[A-za-z0-9_\.]{3,}\.[a-z]{3}$/
+var siteUrlRegex = /^(https:\/\/)?(www\.)?[A-za-z0-9_\.]{3,}\.[a-z]{3}$/i
 
 function isSiteUrlValid(){
     if(siteUrlRegex.test(siteUrlInput.value))
